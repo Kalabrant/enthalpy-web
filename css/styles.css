@@ -172,25 +172,21 @@ h2 {
   font-weight: 800;
   font-stretch: 120%;
   font-size: clamp(1.6rem, 1rem + 2.6vw, 3rem);
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(19, 44, 70, 0.32);
-  white-space: nowrap;
-  transition: color 300ms ease;
-}
-.marquee__track span:hover {
-  color: var(--teal-600);
-  -webkit-text-stroke: 1.5px transparent;
-}
-.marquee__track i {
-  font-style: normal;
-  font-size: 1.6rem;
   background: var(--grad-thermal);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  white-space: nowrap;
+  transition: filter 300ms ease;
+}
+.marquee__track span:hover { filter: brightness(1.18) saturate(1.15); }
+.marquee__track i {
+  font-style: normal;
+  font-size: 1.6rem;
+  color: var(--orange-500);
   font-weight: 800;
 }
 @keyframes marquee {
