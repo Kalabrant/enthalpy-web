@@ -184,8 +184,74 @@
     });
   });
 
+  /* ---------- Barra de progreso térmica ---------- */
+  var progress = document.getElementById('progress');
+  var progressRaf = null;
+  function updateProgress() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+  }
+  window.addEventListener('scroll', function () {
+    if (progressRaf) return;
+    progressRaf = requestAnimationFrame(function () {
+      updateProgress();
+      /* Parallax del héroe: la escena se queda atrás a 1/3 de la velocidad */
+      if (!reduceMotion && window.scrollY < window.innerHeight * 1.2) {
+        media.style.setProperty('--parallax', (window.scrollY * 0.33).toFixed(1) + 'px');
+      }
+      progressRaf = null;
+    });
+  }, { passive: true });
+  updateProgress();
+
+  /* ---------- Reel de clientes: arrastrar para explorar ---------- */
+  var reel = document.getElementById('reel');
+  if (reel) {
+    var dragging = false, startX = 0, startScroll = 0, moved = 0;
+    reel.addEventListener('pointerdown', function (e) {
+      dragging = true; moved = 0;
+      startX = e.clientX;
+      startScroll = reel.scrollLeft;
+      reel.setPointerCapture(e.pointerId);
+      reel.classList.add('is-dragging');
+    });
+    reel.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      reel.scrollLeft = startScroll - dx;
+    });
+    ['pointerup', 'pointercancel'].forEach(function (ev) {
+      reel.addEventListener(ev, function () {
+        dragging = false;
+        reel.classList.remove('is-dragging');
+      });
+    });
+    /* Teclado: flechas desplazan el reel */
+    reel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { reel.scrollBy({ left: 300, behavior: 'smooth' }); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { reel.scrollBy({ left: -300, behavior: 'smooth' }); e.preventDefault(); }
+    });
+
+    /* El video se reproduce solo mientras está a la vista */
+    var reelVideo = reel.querySelector('video');
+    if (reelVideo && 'IntersectionObserver' in window) {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var p = reelVideo.play();
+            if (p && p.catch) p.catch(function () {});
+          } else {
+            reelVideo.pause();
+          }
+        });
+      }, { threshold: 0.35 });
+      vio.observe(reelVideo);
+    }
+  }
+
   /* ---------- Resaltar sección activa en el nav ---------- */
-  var sections = ['servicios', 'proyectos', 'nosotros', 'contacto']
+  var sections = ['servicios', 'proyectos', 'clientes', 'nosotros', 'contacto']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
   var navAnchors = Array.prototype.slice.call(links.querySelectorAll('a:not(.btn)'));

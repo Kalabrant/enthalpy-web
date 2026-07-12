@@ -13,10 +13,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,500..800;125,600..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
   <a class="skip-link" href="#servicios">Saltar al contenido</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
@@ -31,6 +32,7 @@
       <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
         <a href="#servicios">Servicios</a>
         <a href="#proyectos">Proyectos</a>
+        <a href="#clientes">Clientes</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
         <a class="btn btn--primary btn--nav" href="https://wa.me/584246741108?text=Hola%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n%20con%20Enthalpy." target="_blank" rel="noopener">Solicitar cotización</a>
@@ -69,6 +71,14 @@
         </p>
       </div>
     </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Climatización</span><i>·</i><span>Refrigeración</span><i>·</i><span>Electricidad</span><i>·</i><span>Obras civiles</span><i>·</i><span>Mantenimiento</span><i>·</i><span>+15 años</span><i>·</i>
+        <span>Climatización</span><i>·</i><span>Refrigeración</span><i>·</i><span>Electricidad</span><i>·</i><span>Obras civiles</span><i>·</i><span>Mantenimiento</span><i>·</i><span>+15 años</span><i>·</i>
+      </div>
+    </div>
 
     <!-- ============ SERVICIOS ============ -->
     <section class="section" id="servicios">
@@ -250,6 +260,62 @@
       </div>
     </section>
 
+    <!-- ============ CLIENTES ============ -->
+    <section class="showcase" id="clientes">
+      <div class="container">
+        <p class="eyebrow eyebrow--light reveal">Clientes</p>
+        <div class="section__head section__head--light reveal">
+          <h2>Confían en nosotros.</h2>
+          <p>Clínicas, universidades, industria, comercios y espacios públicos: cada sector con sus propias exigencias, el mismo estándar técnico.</p>
+        </div>
+      </div>
+      <div class="reel" id="reel" tabindex="0" aria-label="Casos de clientes, desplazable horizontalmente">
+        <figure class="reel__item reel__item--video">
+          <video src="assets/video/diagnostico.mp4" poster="assets/video/diagnostico-poster.jpg" muted loop playsinline preload="metadata"></video>
+          <figcaption>
+            <span class="reel__client">Diagnóstico en sitio</span>
+            <span class="reel__job">Medición trifásica con instrumentación digital</span>
+          </figcaption>
+        </figure>
+        <figure class="reel__item">
+          <img src="assets/img/clientes-unisare-izaje.jpg" alt="Grúa izando una unidad de climatización nueva frente a la clínica Unisare" loading="lazy">
+          <figcaption>
+            <span class="reel__client">Clínica Unisare · Salud</span>
+            <span class="reel__job">Renovación completa de climatización con izaje</span>
+          </figcaption>
+        </figure>
+        <figure class="reel__item">
+          <img src="assets/img/clientes-unisare-instalacion.jpg" alt="Unidad condensadora nueva instalada en jaula protectora con ductería aislada" loading="lazy">
+          <figcaption>
+            <span class="reel__client">Clínica Unisare · Salud</span>
+            <span class="reel__job">Instalación protegida y ductería aislada</span>
+          </figcaption>
+        </figure>
+        <figure class="reel__item">
+          <img src="assets/img/obras-grua-rectorado.jpg" alt="Grúa de 22 toneladas trabajando sobre edificio universitario" loading="lazy">
+          <figcaption>
+            <span class="reel__client">Sector universitario</span>
+            <span class="reel__job">Izaje y montaje de unidades de gran tonelaje</span>
+          </figcaption>
+        </figure>
+        <figure class="reel__item">
+          <img src="assets/img/electrica-alumbrado-led.jpg" alt="Bulevar público iluminado con alumbrado LED nuevo" loading="lazy">
+          <figcaption>
+            <span class="reel__client">Espacio público</span>
+            <span class="reel__job">Alumbrado LED de bulevar completo</span>
+          </figcaption>
+        </figure>
+        <figure class="reel__item">
+          <img src="assets/img/electrica-generador-instalado.jpg" alt="Grupo electrógeno instalado en caseta cercada" loading="lazy">
+          <figcaption>
+            <span class="reel__client">Industria y comercio</span>
+            <span class="reel__job">Respaldo eléctrico llave en mano</span>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="reel__hint container" aria-hidden="true">← Arrastra para explorar →</p>
+    </section>
+
     <!-- ============ NOSOTROS ============ -->
     <section class="section" id="nosotros">
       <div class="container about">
@@ -395,6 +461,6 @@
     <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Siguiente">&#8250;</button>
   </dialog>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>
