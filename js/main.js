@@ -232,22 +232,6 @@
       if (e.key === 'ArrowRight') { reel.scrollBy({ left: 300, behavior: 'smooth' }); e.preventDefault(); }
       if (e.key === 'ArrowLeft') { reel.scrollBy({ left: -300, behavior: 'smooth' }); e.preventDefault(); }
     });
-
-    /* El video se reproduce solo mientras está a la vista */
-    var reelVideo = reel.querySelector('video');
-    if (reelVideo && 'IntersectionObserver' in window) {
-      var vio = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var p = reelVideo.play();
-            if (p && p.catch) p.catch(function () {});
-          } else {
-            reelVideo.pause();
-          }
-        });
-      }, { threshold: 0.35 });
-      vio.observe(reelVideo);
-    }
   }
 
   /* ---------- Resaltar sección activa en el nav ---------- */
