@@ -29,4 +29,4 @@ Subir el contenido completo de esta carpeta a la raíz pública del hosting
 Si cambian teléfono o correo, buscar y reemplazar en `index.html`:
 
 - WhatsApp/Tel: `584226741108` (enlaces) y `0422-674.11.08` (texto visible)
-- Correo: `admenthalpyca@gmail.com`
+- Correo: `administracion@enthalpyca.com`
