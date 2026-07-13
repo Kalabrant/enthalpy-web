@@ -179,7 +179,7 @@
       chips.forEach(function (c) { c.classList.remove('is-active'); });
       chip.classList.add('is-active');
       var service = chip.getAttribute('data-service');
-      waQuote.href = 'https://wa.me/584246741108?text=' +
+      waQuote.href = 'https://wa.me/584226741108?text=' +
         encodeURIComponent('Hola Enthalpy, quiero una cotización de: ' + service + '.');
     });
   });
