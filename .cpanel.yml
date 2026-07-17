@@ -6,3 +6,6 @@ deployment:
     - /bin/cp -Rf css $DEPLOYPATH
     - /bin/cp -Rf js $DEPLOYPATH
     - /bin/cp -Rf assets $DEPLOYPATH
+    - /bin/cp -Rf v $DEPLOYPATH
+    - /bin/cp -f robots.txt $DEPLOYPATH
+    - /bin/cp -f sitemap.xml $DEPLOYPATH

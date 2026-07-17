@@ -1,0 +1,10 @@
+# Enthalpy, C.A. — https://enthalpyca.com/
+# Las credenciales de personal en /v/ llevan meta noindex en cada página.
+# No se listan aquí a propósito: robots.txt es público y anunciar la ruta
+# facilitaría encontrarla. Además, un Disallow impediría al rastreador leer
+# el propio noindex, que es justo lo que queremos que lea.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://enthalpyca.com/sitemap.xml

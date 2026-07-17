@@ -1,0 +1,6 @@
+# Sin listado de directorios: nadie enumera las credenciales entrando a /v/
+Options -Indexes
+# Refuerzo por cabecera, por si algún bot ignora el meta noindex
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>
